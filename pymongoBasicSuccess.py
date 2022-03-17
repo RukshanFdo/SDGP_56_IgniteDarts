@@ -5,7 +5,7 @@ cluster = MongoClient("mongodb+srv://AvishkaAttygalle:ju5t4fun@cluster0.u76jc.mo
 db = cluster["kokiyadb"]
 collection = db["recipesNew"]
 
-recipeList = []
+#Removed code line
 
 val1 = input("Enter first ingredient : ")
 val2 = input("Enter second ingredient : ")
