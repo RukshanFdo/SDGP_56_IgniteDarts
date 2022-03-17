@@ -6,6 +6,7 @@ db = cluster["kokiyadb"]
 collection = db["recipesNew"]
 
 #Removed code line
+#Added comment
 
 val1 = input("Enter first ingredient : ")
 val2 = input("Enter second ingredient : ")
