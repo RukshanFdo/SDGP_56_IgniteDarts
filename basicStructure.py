@@ -14,6 +14,7 @@ results1  = db.recipesNew.find({
 
 for result in results1:
     print(result)
+    print('\n')
 
 results2 = db.recipesNew.find({
   "core ingredient 5": "coconut" ,
@@ -22,3 +23,4 @@ results2 = db.recipesNew.find({
 
 for result in results2:
     print(result)
+    print('\n')
