@@ -5,7 +5,7 @@ cluster = MongoClient("mongodb+srv://AvishkaAttygalle:ju5t4fun@cluster0.u76jc.mo
 db = cluster["kokiyadb"]
 collection = db["recipesNew"]
 
-flavour = input("Search recipe name : ")
+flavour = input("Enter a preferred flavour : ")
 
 result_4 = collection.find({"category2" : flavour})
 
