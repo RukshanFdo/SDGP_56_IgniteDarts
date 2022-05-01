@@ -97,6 +97,33 @@ def getbycategory():
     myresult = mycursor.fetchall()
     return str(myresult)
 
+# with app.test_client() as c:
+#     test_result = c.get('/')
+#     json_data = test_result.get_json()
+#     assert json_data == ''
+
+with app.test_client() as c:
+    test_result = c.post('/getbyname', json={
+        'name': 'Test Recipe'
+    })
+    json_data = test_result.get_json()
+    assert json_data == "[('Test Recipe', 'https://www.topsrilankanrecipe.com/wp-content/uploads/2021/06/6a-2.jpg', 'test1, test2, test3, test4, test5', 'Data record for unit testing purposes', 'vegetarian', 'spicy', '10')]"
+
+with app.test_client() as c:
+    test_result = c.get('/getbyingredient', json={
+        'ingredients': 'test, test, test, test, test'
+    })
+    json_data = test_result.get_json()
+    assert json_data == '[{"count":5,"recipe":["Test Recipe","https://www.topsrilankanrecipe.com/wp-content/uploads/2021/06/6a-2.jpg","test1, test2, test3, test4, test5","Data record for unit testing purposes","filter1","filter2","10"],"time":10}]'
+
+with app.test_client() as c:
+    test_result = c.post('/getbycategory', json={
+        'category': 'category1',
+        'value': 'filter1'
+    })
+    json_data = test_result.get_json()
+    assert json_data == "[('Test Recipe', 'https://www.topsrilankanrecipe.com/wp-content/uploads/2021/06/6a-2.jpg', 'test1, test2, test3, test4, test5', 'Data record for unit testing purposes', 'filter1', 'filter2', '10')]"
+
 
 
 
